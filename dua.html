@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>دعاء للمتوفى</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e7;--card:#fffdf8;--ink:#2b2a26;--mute:#7a7467;--gold:#a8812f;--line:#e4dccb;--btn:#2f5d50;--btnink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#14181a;--card:#1c2225;--ink:#efe9dc;--mute:#a09a8c;--gold:#d3ac5a;--line:#2d3639;--btn:#4f8f7c;--btnink:#0f1513}}
+:root[data-theme="dark"]{--bg:#14181a;--card:#1c2225;--ink:#efe9dc;--mute:#a09a8c;--gold:#d3ac5a;--line:#2d3639;--btn:#4f8f7c;--btnink:#0f1513}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Tajawal',system-ui,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.card{width:100%;max-width:440px;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:32px 24px;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,.06)}
+.orn{color:var(--gold);font-size:22px;letter-spacing:8px;margin-bottom:8px}
+h1{font-family:'Amiri',serif;font-weight:700;font-size:30px;margin:0 0 6px}
+.sub{color:var(--mute);margin:0 0 24px;font-size:15px}
+label{display:block;text-align:right;font-size:14px;color:var(--mute);margin:16px 0 6px}
+input[type=text]{width:100%;padding:14px;border:1px solid var(--line);border-radius:14px;background:transparent;color:var(--ink);font:inherit;font-size:18px;text-align:center}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg button{flex:1;min-width:70px;padding:12px 8px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:12px;font:inherit;font-size:16px;cursor:pointer}
+.seg button.on{background:var(--btn);color:var(--btnink);border-color:var(--btn)}
+.go{width:100%;margin-top:24px;padding:15px;border:0;border-radius:14px;background:var(--btn);color:var(--btnink);font:inherit;font-size:18px;font-weight:500;cursor:pointer}
+.go:disabled{opacity:.45}
+.for{color:var(--mute);font-size:15px}
+.name{font-family:'Amiri',serif;font-size:38px;font-weight:700;margin:4px 0 18px;line-height:1.3;word-break:break-word}
+.dua{font-family:'Amiri',serif;font-size:30px;line-height:1.9;color:var(--gold);margin:0 0 20px}
+.ring{position:relative;width:190px;height:190px;margin:0 auto 14px}
+.ring svg{transform:rotate(-90deg);width:100%;height:100%}
+.ring circle{fill:none;stroke-width:8}
+.bg{stroke:var(--line)}.fg{stroke:var(--gold);stroke-linecap:round;transition:stroke-dashoffset .2s}
+.tap{position:absolute;inset:14px;border-radius:50%;border:0;background:var(--btn);color:var(--btnink);font-family:'Amiri',serif;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+.tap:active{transform:scale(.97)}
+.tap b{font-size:44px;line-height:1}.tap span{font-size:14px;opacity:.85;margin-top:4px}
+.done{color:var(--gold);font-family:'Amiri',serif;font-size:24px;min-height:34px}
+.link{background:none;border:0;color:var(--mute);font:inherit;font-size:14px;margin-top:14px;cursor:pointer;text-decoration:underline}
+.hint{color:var(--mute);font-size:13px;margin-top:18px}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main class="card">
+<section id="make">
+  <div class="orn">✦ ✦ ✦</div>
+  <h1>دعاء للمتوفى</h1>
+  <p class="sub">اكتب الاسم وسنجهّز لك صفحة دعاء تشاركها مع من تحب</p>
+  <label for="nm">اسم المتوفى</label>
+  <input id="nm" type="text" maxlength="40" autocomplete="off" placeholder="الاسم">
+  <label>الجنس</label>
+  <div class="seg" id="gen"><button data-v="m" class="on">ذكر</button><button data-v="f">أنثى</button></div>
+  <label>عدد مرات الدعاء</label>
+  <div class="seg" id="cnt"><button data-v="33">33</button><button data-v="100" class="on">100</button><button data-v="200">200</button><button data-v="300">300</button><button data-v="500">500</button><button data-v="1000">1000</button></div>
+  <button class="go" id="start" disabled>ابدأ الدعاء</button>
+</section>
+
+<section id="view" hidden>
+  <div class="orn">✦</div>
+  <div class="for" id="for"></div>
+  <div class="name" id="who"></div>
+  <p class="dua" id="dua"></p>
+  <div class="ring">
+    <svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="45"/><circle class="fg" id="fg" cx="50" cy="50" r="45" stroke-dasharray="282.74" stroke-dashoffset="282.74"/></svg>
+    <button class="tap" id="tap" aria-label="دعاء"><b id="n">0</b><span id="of"></span></button>
+  </div>
+  <div class="done" id="done"></div>
+  <button class="link" id="again">إنشاء دعاء لشخص آخر</button>
+  <div class="hint">لمشاركة الدعاء انسخ رابط هذه الصفحة وأرسله، وسيظهر الاسم لمن يفتحه</div>
+</section>
+</main>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var gender='m',count=100,cur=0,goal=100,key='';
+var ar=function(n){return String(n)};
+function enc(s){return Array.from(new TextEncoder().encode(s)).map(function(b){return ('0'+b.toString(16)).slice(-2)}).join('')}
+function dec(h){try{var a=new Uint8Array(h.match(/../g).map(function(x){return parseInt(x,16)}));return new TextDecoder().decode(a)}catch(e){return ''}}
+function pick(group,btn){Array.prototype.forEach.call(group.children,function(b){b.classList.toggle('on',b===btn)})}
+$('gen').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;gender=b.dataset.v;pick($('gen'),b)});
+$('cnt').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;count=+b.dataset.v;pick($('cnt'),b)});
+$('nm').addEventListener('input',function(){$('start').disabled=!$('nm').value.trim()});
+$('start').addEventListener('click',function(){
+  var n=$('nm').value.trim();if(!n)return;
+  location.hash=gender+'-'+count+'-'+enc(n);
+});
+$('again').addEventListener('click',function(){location.hash='';});
+function draw(){
+  $('n').textContent=ar(cur);
+  $('fg').style.strokeDashoffset=282.74*(1-Math.min(cur/goal,1));
+  $('done').textContent=cur>=goal?'تقبّل الله منكم ورحم فقيدنا':'';
+}
+function route(){
+  var m=/^([mf])-(\d{1,4})-([0-9a-f]+)$/.exec(location.hash.slice(1));
+  var name=m?dec(m[3]).trim():'';
+  if(!m||!name){$('make').hidden=false;$('view').hidden=true;document.title='دعاء للمتوفى';return;}
+  var f=m[1]==='f';goal=+m[2];key='dua:'+location.hash;cur=0;
+  try{cur=parseInt(localStorage.getItem(key),10)||0}catch(e){}
+  $('for').textContent=f?'دعاء للمرحومة':'دعاء للمرحوم';
+  $('who').textContent=name;
+  $('dua').textContent=f?'اللهم ارحمها واغفر لها':'اللهم ارحمه واغفر له';
+  $('of').textContent='من '+ar(goal);
+  document.title=(f?'دعاء للمرحومة ':'دعاء للمرحوم ')+name;
+  $('make').hidden=true;$('view').hidden=false;draw();
+}
+$('tap').addEventListener('click',function(){
+  if(cur>=goal)return;cur++;draw();
+  try{localStorage.setItem(key,String(cur))}catch(e){}
+  if(navigator.vibrate&&cur>=goal){try{navigator.vibrate(60)}catch(e){}}
+});
+window.addEventListener('hashchange',route);
+route();
+})();
+</script>
+</body>
+</html>
